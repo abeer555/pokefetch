@@ -1,0 +1,124 @@
+/* ----------- 💫 pokefetch — clean layout 💫 -------- */
+
+{
+"$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+"logo": {
+  "height": 20,
+  "width": 40,
+  "padding": {
+    "top": 1,
+    "left": 2
+    }
+  },
+"display": {
+  "separator": "  ",
+  "key": {
+    "width": 13
+  }
+},
+
+"modules": [
+  "break",
+  {
+    "type": "title",
+    "key": "  ",
+    "format": "{user-name}@{host-name}",
+    "keyColor": "magenta"
+  },
+  "break",
+  {
+    "type": "os",
+    "key": "󰣇 Distro",
+    "keyColor": "red"
+  },
+  {
+    "type": "kernel",
+    "key": "󰌽 Kernel",
+    "keyColor": "red"
+  },
+  {
+    "type": "shell",
+    "key": "󰆍 Shell",
+    "keyColor": "red"
+  },
+  {
+    "type": "uptime",
+    "key": "󰅐 Uptime",
+    "keyColor": "red"
+  },
+  {
+    "type": "command",
+    "key": "󰃭 Install",
+    "text": "echo $(( ($(date +%s) - $(stat -c %W /)) / 86400 )) days ago",
+    "keyColor": "red"
+  },
+  {
+    "type": "terminalfont",
+    "key": "󰛖 Font",
+    "keyColor": "green"
+  },
+  "break",
+  {
+    "type": "cpu",
+    "format": "{1} ({3})",
+    "key": "󰻠 CPU",
+    "keyColor": "yellow"
+  },
+  {
+    "type": "gpu",
+    "format": "{2}",
+    "key": "󰢮 GPU",
+    "keyColor": "yellow"
+  },
+  {
+    "type": "memory",
+    "key": "󰍛 Memory",
+    "keyColor": "yellow"
+  },
+  {
+    "type": "disk",
+    "key": "󰋊 Disk",
+    "keyColor": "yellow"
+  },
+  {
+    "type": "battery",
+    "key": "󰁹 Battery",
+    "keyColor": "yellow"
+  },
+  {
+    "type": "brightness",
+    "key": "󰃟 Backlight",
+    "keyColor": "yellow"
+  },
+  {
+    "type": "display",
+    "key": "󰍹 Display",
+    "compactType": "original-with-refresh-rate",
+    "keyColor": "yellow"
+  },
+  "break",
+  {
+    "type": "localip",
+    "format": "{1}",
+    "key": "󰩟 Local IP",
+    "keyColor": "blue"
+  },
+  {
+    "type": "bluetooth",
+    "key": "󰂯 Bluetooth",
+    "keyColor": "blue"
+  },
+  {
+    "type": "sound",
+    "key": "󰕾 Sound",
+    "keyColor": "blue"
+  },
+  "break",
+  {
+    "type": "colors",
+    "paddingLeft": 2,
+    "symbol": "circle"
+  },
+  "break"
+]
+}

@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# Launch fastfetch with a random Pokémon image as the logo.
+# Self-contained: resolves paths relative to this script's own location,
+# so it works wherever the repo is cloned, for any user.
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+IMG_DIR="${POKEFETCH_IMG_DIR:-$SCRIPT_DIR/pokemons}"
+CONFIG="${POKEFETCH_CONFIG:-$SCRIPT_DIR/config.jsonc}"
+
+# Terminal image protocol used to render the logo. Defaults to "kitty"
+# (works in kitty, Ghostty, WezTerm, Konsole). Override for other terminals,
+# e.g. POKEFETCH_LOGO_TYPE=sixel
+LOGO_TYPE="${POKEFETCH_LOGO_TYPE:-kitty}"
+
+# Pick a random image from the directory.
+POKE="$(find "$IMG_DIR" -maxdepth 1 -type f -name '*.png' | shuf -n1)"
+
+if [ -z "$POKE" ]; then
+  echo "pokefetch: no .png images found in $IMG_DIR" >&2
+  exit 1
+fi
+
+exec fastfetch -c "$CONFIG" --logo-type "$LOGO_TYPE" --logo "$POKE" "$@"
